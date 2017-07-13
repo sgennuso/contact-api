@@ -7,7 +7,10 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/lumen-framework": "5.4.*",
-        "vlucas/phpdotenv": "~2.2"
+        "vlucas/phpdotenv": "~2.2",
+        "illuminate/mail": "^5.4",
+        "phanan/cascading-config": "^2.0",
+        "aws/aws-sdk-php": "^3.31"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
