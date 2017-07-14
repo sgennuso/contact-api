@@ -14,7 +14,7 @@ class MailController extends Controller
      */
     public function index(Request $request)
     {
-        $mailed = Mail::raw($request->message, function ($message){
+        $mailed = Mail::raw($request->message, function ($request){
             $message
                 ->to($request->to)
                 ->subject($request->subject);
