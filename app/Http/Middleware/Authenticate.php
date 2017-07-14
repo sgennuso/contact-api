@@ -35,10 +35,15 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ($this->auth->guard($guard)->guest()) {
+        if ( !$this->authorizedIp( $request->ip() ) ) {
             return response('Unauthorized.', 401);
         }
 
         return $next($request);
+    }
+
+    private function authorizedIp( $ip )
+    {
+        return in_array($ip, config('ips.whitelist'));
     }
 }

@@ -8,22 +8,17 @@ use Illuminate\Http\Request;
 class MailController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * Construt and send email.
+     * @param  Request $request [description]
+     * @return [type]           [description]
      */
-    public function __construct()
+    public function index(Request $request)
     {
-        //
-    }
-
-    public function mail(Request $request)
-    {
-        dd( config('ips.whitelist') );
         $mailed = Mail::raw($request->message, function ($message){
             $message->to($request->to);
         });
 
         return $mailed;
     }
+
 }
