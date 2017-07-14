@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 class MailController extends Controller
 {
@@ -16,10 +17,11 @@ class MailController extends Controller
         //
     }
 
-    public function mail()
+    public function mail(Request $request)
     {
-        $mailed = Mail::raw('Testing', function ($message){
-            $message->to('freshbrewedweb@gmail.com');
+        dd( config('ips.whitelist') );
+        $mailed = Mail::raw($request->message, function ($message){
+            $message->to($request->to);
         });
 
         return $mailed;

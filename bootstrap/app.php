@@ -84,6 +84,7 @@ $app->register(App\Providers\AuthServiceProvider::class);
 //
 
 $app->configure('mail');
+$app->configure('ips');
 
 /*
 |--------------------------------------------------------------------------
