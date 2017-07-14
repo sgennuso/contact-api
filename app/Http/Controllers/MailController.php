@@ -14,13 +14,17 @@ class MailController extends Controller
      */
     public function index(Request $request)
     {
-        $mailed = Mail::send([], [], function ($message) use ($request) {
-          $message->to($request->to)
-                    ->subject($request->subject)
-                    ->setBody($request->message, $request->html ? 'text/html' : NULL);
-        });
+        try {
+            Mail::send([], [], function ($message) use ($request) {
+                $message->to($request->to)
+                ->subject($request->subject)
+                ->setBody($request->message, $request->html ? 'text/html' : NULL);
+            });
+        } catch( \Exception $e ) {
+            return "Error";
+        }
 
-        return $mailed;
+        return "OK";
     }
 
 }
