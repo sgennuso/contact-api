@@ -10,7 +10,8 @@
         "vlucas/phpdotenv": "~2.2",
         "illuminate/mail": "^5.4",
         "phanan/cascading-config": "^2.0",
-        "aws/aws-sdk-php": "^3.31"
+        "aws/aws-sdk-php": "^3.31",
+        "palanik/lumen-cors": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
