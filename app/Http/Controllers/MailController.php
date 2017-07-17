@@ -14,6 +14,13 @@ class MailController extends Controller
      */
     public function index(Request $request)
     {
+        $this->validate($request, [
+            'to' => 'required|email',
+            'html' => 'required',
+            'message' => 'required',
+            'subject' => 'required',
+        ]);
+
         try {
             Mail::send([], [], function ($message) use ($request) {
                 $message->to($request->to)
