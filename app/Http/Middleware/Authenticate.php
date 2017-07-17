@@ -47,7 +47,7 @@ class Authenticate
         $audicusIps = config('ips.whitelist');
         $allowedIps = explode(',', env('ALLOWED_IPS'));
         $ips = array_merge($allowedIps, $audicusIps);
-        
+
         return in_array($ip, $ips);
     }
 }
