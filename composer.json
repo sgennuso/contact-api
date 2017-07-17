@@ -11,7 +11,7 @@
         "illuminate/mail": "^5.4",
         "phanan/cascading-config": "^2.0",
         "aws/aws-sdk-php": "^3.31",
-        "palanik/lumen-cors": "dev-master"
+        "palanik/lumen-cors": "^0.0.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
