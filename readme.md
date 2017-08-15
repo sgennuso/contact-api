@@ -56,16 +56,16 @@ Sends an email to a specified address.
   ```
   
   **Sample cUrl Request**
-  ```
-curl -X POST \
-  https://contact.ubiweb.ca/send \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
-  -H 'postman-token: 4bf06c09-61d4-3a9c-6fe6-f876c896d84d' \
-  -d '{
-  "to": "admin@examplesite.com",
-  "subject": "Contact from ExampleSite.com",
-  "message": "<h1>Message</h1><p>Body content</p>",
-  "html": true
-}'
-  ```
+	```
+	curl -X POST \
+	  https://contact.ubiweb.ca/send \
+	  -H 'cache-control: no-cache' \
+	  -H 'content-type: application/json' \
+	  -H 'postman-token: 4bf06c09-61d4-3a9c-6fe6-f876c896d84d' \
+	  -d '{
+	  "to": "admin@examplesite.com",
+	  "subject": "Contact from ExampleSite.com",
+	  "message": "<h1>Message</h1><p>Body content</p>",
+	  "html": true
+	}'
+	```
