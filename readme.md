@@ -20,6 +20,7 @@ Sends an email to a specified address.
    **Required:**
    - `subject=[alphanumeric]`
    - `to=[alphanumeric email]`
+   - `donotfill=[empty string]` - will validate as SPAM if anything other than empty.
 
    **Optional:**
    - `message=[alphanumeric]`
