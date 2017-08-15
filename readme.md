@@ -9,12 +9,19 @@ This is the API for handling contact forms and requests on the Ubiweb network.
 
 Sends an email to a specified address.
 
--	**URL**
-	/send/
+*  **URL**
+   `/send/`
 
--	**Method**
-	`POST`
+*  **Method**
+   `POST`
 
-- 	**Data Params**
-	- subject
-	- email
+*  **Data Params**
+
+   **Required:**
+   - `subject=[alphanumeric]`
+   - `to=[alphanumeric email]`
+
+   **Optional:**
+   - `message=[alphanumeric]`
+   - `from=[alphanumeric]`
+   - `g-recaptcha-response=[alphanumeric]`
