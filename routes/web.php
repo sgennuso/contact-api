@@ -16,4 +16,8 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+$app->get('/test', function () use ($app) {
+    return "Test Route";
+});
+
 $app->post('/mail', 'MailController@index');
