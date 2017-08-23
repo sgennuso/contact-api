@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use App\Sender;
+
 
 class MailController extends Controller
 {
@@ -14,21 +16,35 @@ class MailController extends Controller
      */
     public function index(Request $request)
     {
-        $this->validate($request, [
-            'to' => 'required|email',
-            'html' => 'required',
-            'message' => 'required',
-            'subject' => 'required',
-        ]);
+        if( !isset($request->donotfill) ) {
+            $request->add(['donotfill' => '']);
+        }
+
+        if( $request->autobody == "true" ) {
+            // Generate message
+            $message = Sender::autoMessage( $request );
+            $request->merge(['message' => $message]);
+        }
+
+        $this->validate($request, Sender::getSpecialFields());
 
         try {
             Mail::send([], [], function ($message) use ($request) {
                 $message->to($request->to)
                 ->subject($request->subject)
-                ->setBody($request->message, $request->html ? 'text/html' : NULL);
+                ->setBody($request->message, ($request->input('html') == "true") ? 'text/html' : NULL);
             });
         } catch( \Exception $e ) {
+
+            if( $request->input('error_redirect') ) {
+                return redirect($request->error_redirect);
+            }
+
             return "Error";
+        }
+
+        if( $request->input('success_redirect') ) {
+            return redirect($request->success_redirect);
         }
 
         return "OK";
