@@ -34,13 +34,14 @@ class MailController extends Controller
                 ->subject($request->subject)
                 ->setBody($request->message, ($request->input('html') == "true") ? 'text/html' : NULL);
             });
+
         } catch( \Exception $e ) {
 
             if( $request->input('error_redirect') ) {
                 return redirect($request->error_redirect);
             }
 
-            return "Error";
+            return "Error: " . $e->getMessage();
         }
 
         if( $request->input('success_redirect') ) {
