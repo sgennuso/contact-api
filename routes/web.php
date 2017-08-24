@@ -16,8 +16,8 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/test', function () use ($app) {
-    return "Test Route";
+$app->get('/test-captcha', function () use ($app) {
+    return view('recaptcha');
 });
 
 $app->post('/mail', 'MailController@index');
