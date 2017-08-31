@@ -47,7 +47,7 @@ Sends an email to a specified address.
 
   **Sample Form Request**
   ``` html
-  <form action="https://contact.ubiweb.ca/send" method="post">
+  <form action="https://contact.ubiweb.ca/mail" method="post">
 	<input type="text" name="subject" value="Contact from ExampleSite.com"/>
 	<textarea name="message"></textarea>
 	<input type="hidden" name="to" value="admin@examplesite.com"/>
